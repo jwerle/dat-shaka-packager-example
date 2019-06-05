@@ -5,6 +5,10 @@
     "*.m3u8"
   ],
 
+  "ignore": [
+    "h264_(baseline|main|high)_(360p|480p|720p|1080p)_(600|1000|3000|6000).mp4"
+  ],
+
   "packager": {
     "enable_raw_key_encryption": true,
     "generate_static_mpd": true,

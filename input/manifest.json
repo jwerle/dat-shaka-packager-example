@@ -1,0 +1,75 @@
+{
+  "files": [
+    "*.mp4",
+    "*.mpd",
+    "*.m3u8"
+  ],
+
+  "packager": {
+    "enable_raw_key_encryption": true,
+    "generate_static_mpd": true,
+    "hls_master_playlist_output": "playlist.m3u8",
+    "mpd_output": "manifest.mpd",
+
+    "streams": [
+      {
+        "in": "h264_baseline_360p_600.mp4",
+        "stream": "audio",
+        "output": "audio.mp4",
+        "drm_label": "audio"
+      },
+      {
+        "in": "h264_baseline_360p_600.mp4",
+        "stream": "video",
+        "output": "h264_360p.mp4",
+        "drm_label": "sd-360p-primary1"
+      },
+      {
+        "in": "h264_main_480p_1000.mp4",
+        "stream": "video",
+        "output": "h264_480p.mp4",
+        "drm_label": "sd-480p-primary1"
+      },
+      {
+        "in": "h264_main_720p_3000.mp4",
+        "stream": "video",
+        "output": "h264_720p.mp4",
+        "drm_label": "hd-720p-primary1"
+      },
+      {
+        "in": "h264_high_1080p_6000.mp4",
+        "stream": "video",
+        "output": "h264_1080p.mp4",
+        "drm_label": "hd-1080p-primary1"
+      }
+    ],
+
+    "keys": [
+      {
+        "label": "audio",
+        "key_id": "a5308ea1375fb2f240d90fc29bad2c66",
+        "key": "0884cf8e9445bf2d6e10e5b88a8661d3"
+      },
+      {
+        "label": "sd-360p-primary1",
+        "key_id": "445da07a32a2c28de3ee0c00638708a3",
+        "key": "88a1127789efd85478f21467a7a524e5"
+      },
+      {
+        "label": "sd-480p-primary1",
+        "key_id": "6465a536e3a87ec28b594a2a8e20af17",
+        "key": "2d41d551367a30ed5b71f2dc4f22b802"
+      },
+      {
+        "label": "hd-720p-primary1",
+        "key_id": "da54aece6717796b7df729c75bdaa0f9",
+        "key": "b39c2faae9b3d1406cc06239425536e5"
+      },
+      {
+        "label": "hd-1080p-primary1",
+        "key_id": "85d23925199895d562df2edc3a730b2c",
+        "key": "57d9a65c5ce6ab56c468d26396074b82"
+      }
+    ]
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "name": "dat-shaka-packager-example",
+  "version": "0.0.1",
+  "description": "An example for dat-shaka-packager",
+  "main": "index.js",
+  "scripts": {
+    "test": ":"
+  },
+  "keywords": [
+    "dat",
+    "shaka",
+    "packager",
+    "example"
+  ],
+  "author": "Joseph Werle <joseph.werle@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "dat-storage": "^1.1.1",
+    "dat-swarm-defaults": "^1.0.2",
+    "discovery-swarm": "^6.0.0",
+    "hyperdrive": "^9.14.5",
+    "random-access-memory": "^3.1.1"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jwerle/dat-shaka-packager-example.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jwerle/dat-shaka-packager-example/issues"
+  },
+  "homepage": "https://github.com/jwerle/dat-shaka-packager-example#readme"
+}

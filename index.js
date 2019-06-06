@@ -7,7 +7,7 @@ const swarm = require('discovery-swarm')
 const path = require('path')
 const ram = require('random-access-memory')
 
-const TIMEOUT = 10000
+const TIMEOUT = 60000
 const dirname = './input'
 const key = '3546e77a133f01721058fb96cd9034d2cbf1e665eb040455e6eec614a8206bb7'
 
@@ -65,9 +65,24 @@ function connect(key, dirname, callback) {
         timeout = setTimeout(ontimeout, TIMEOUT)
       })
 
+      response.once('content', () => {
+        response.content.on('download', (info) => {
+          console.log('download:',
+            response.content.stats.totals.downloadedBytes / response.content.byteLength)
+          clearTimeout(timeout)
+          timeout = setTimeout(ontimeout, TIMEOUT)
+        })
+      })
+      input.content.on('upload', (info) => {
+        console.log('upload:', info)
+        clearTimeout(timeout)
+        timeout = setTimeout(ontimeout, TIMEOUT)
+      })
+
       function onsync() {
+        console.log('sync')
         clearTimeout(ontimeout)
-        stream.destroy()
+        stream.finalize()
         discovery.close()
         response.readFile('error.json', (err, buf) => {
           if (err) {
@@ -79,9 +94,10 @@ function connect(key, dirname, callback) {
       }
 
       function ontimeout() {
+        console.log('timeout: retries=%d', retries)
         retries--
         connected = false
-        stream.destroy()
+        stream.finalize()
         rimraf(output, (err) => err && console.error(err))
       }
     }
